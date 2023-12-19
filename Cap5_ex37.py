@@ -24,7 +24,7 @@ def verifica_dias_mes(mes, year):
         else:
             return 28
 
-def validade_data_input(day_in, month_in, year_in, hour_in, minute_in, day_out, month_out, year_out, hour_out, minute_out):
+def validade_data_input(day_in, month_in, year_in, hour_in, minute_in, day_out, month_out, year_out, hour_out, minute_out): ###A data de entrada deve ser o dia de hoje###
     data_atual = datetime.now()
     if year_in == data_atual.year and month_in == data_atual.month and day_in == data_atual.day:
         if year_in == year_out:
@@ -47,6 +47,12 @@ def validade_data_input(day_in, month_in, year_in, hour_in, minute_in, day_out, 
                 return 1
             else:
                 return 0
+        elif year_in < year_out:
+            return 1
+        else:
+            return 0
+    else:
+        return 0
 
 
 def tempo_estacionado(day_in, month_in, year_in, hour_in, minute_in, day_out, month_out, year_out, hour_out, minute_out):
@@ -92,6 +98,8 @@ while True:
     hour_out, minute_out = testa_hora(time_out)
     print(
         f"Saída \nDia: {day_out}/{month_out}/{year_out}\nHorário: {hour_out}:{minute_out}")
+    
+    print(f"A data inserida é {validade_data_input(day_in, month_in, year_in, hour_in, minute_in, day_out, month_out, year_out, hour_out, minute_out)}")
 
     tempo_estacionado = tempo_estacionado(
         day_in, month_in, year_in, hour_in, minute_in, day_out, month_out, year_out, hour_out, minute_out)
