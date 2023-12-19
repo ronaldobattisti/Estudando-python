@@ -24,68 +24,76 @@ def verifica_dias_mes(mes, year):
         else:
             return 28
 
-def validade_data_input(dayIn, monthIn, yearIn, hourIn, minuteIn, dayOut, monthOut, yearOut, hourOut, minuteOut):
+def validade_data_input(day_in, month_in, year_in, hour_in, minute_in, day_out, month_out, year_out, hour_out, minute_out):
     data_atual = datetime.now()
-    if yearIn == data_atual.year and monthIn == data_atual.month and dayIn == data_atual.day:
-        if yearIn == yearOut:
-            if monthIn == monthOut:
-                if dayIn == dayOut:
-                    if hourIn == hourOut:
-                        if minuteIn < minuteOut:
+    if year_in == data_atual.year and month_in == data_atual.month and day_in == data_atual.day:
+        if year_in == year_out:
+            if month_in == month_out:
+                if day_in == day_out:
+                    if hour_in == hour_out:
+                        if minute_in < minute_out:
                             return 1  # Retorna 1 quando uma data é possível
                         else:
                             return 0  # Retorna 0 quando uma data é impossível
-                    elif hourIn < hourOut:
+                    elif hour_in < hour_out:
                         return 1
                     else:
                         return 0
+                elif day_in < day_out:
+                    return 1
+                else: 
+                    return 0
+            elif month_in < month_out:
+                return 1
+            else:
+                return 0
 
 
-def tempo_estacionado(dayIn, monthIn, yearIn, hourIn, minuteIn, dayOut, monthOut, yearOut, hourOut, minuteOut):
-    if yearIn == yearOut:
-        if monthIn == monthOut:
-            if dayIn == dayOut:
-                if hourIn == hourOut:
-                    if minuteIn == minuteOut:
+def tempo_estacionado(day_in, month_in, year_in, hour_in, minute_in, day_out, month_out, year_out, hour_out, minute_out):
+    if year_in == year_out:
+        if month_in == month_out:
+            if day_in == day_out:
+                if hour_in == hour_out:
+                    if minute_in == minute_out:
                         print(
                             "Valor não admissível, datas iguais de entrada e de saída.")
                     else:
-                        tempoEstacionado = minuteOut - minuteIn
+                        tempoEstacionado = minute_out - minute_in
                 else:
-                    tempoEstacionado = (hourOut - hourIn) * \
-                        60 + minuteOut - minuteIn
-            elif dayOut - dayIn == 1:  # Testa se saiu no dia posterior ao da entrada###
-                tempoEstacionado = (hourOut + 24 - hourIn) * \
-                    60 + minuteOut - minuteIn
+                    tempoEstacionado = (hour_out - hour_in) * \
+                        60 + minute_out - minute_in
+            elif day_out - day_in == 1:  # Testa se saiu no dia posterior ao da entrada###
+                tempoEstacionado = (hour_out + 24 - hour_in) * \
+                    60 + minute_out - minute_in
             else:
-                tempoEstacionado = (dayOut - dayIn - 1) * 24 * 60 + \
-                    (hourOut + 24 - hourIn) * 60 + minuteOut - minuteIn
-        elif monthIn > monthOut:
+                tempoEstacionado = (day_out - day_in - 1) * 24 * 60 + \
+                    (hour_out + 24 - hour_in) * 60 + minute_out - minute_in
+        elif month_in > month_out:
             print("Valor não admissível, mês de entrada posterior ao mês de saída.")
-        elif monthOut - monthIn == 1:  # testa se saiu no mês posterior ao da entrada###
-            tempoEstacionado = (dayOut + verifica_dias_mes(monthIn, yearIn) - dayIn - 1) * \
-                24 * 60 + (hourOut + 24 - hourIn) * 60 + minuteOut - minuteIn
+        elif month_out - month_in == 1:  # testa se saiu no mês posterior ao da entrada###
+            tempoEstacionado = (day_out + verifica_dias_mes(month_in, year_in) - day_in - 1) * \
+                24 * 60 + (hour_out + 24 - hour_in) * 60 + minute_out - minute_in
     else:
         return 0
     return tempoEstacionado  # retorna o tempo estacionado em minutos###
 
 
 while True:
-    dateIn = input("Escreva a data de entrada(dd/mm/yyyy): ")
-    dayIn, monthIn, yearIn = testa_data(dateIn)
-    timeIn = input("Escreva o horário de entrada(hh:mm):")
-    hourIn, minuteIn = testa_hora(timeIn)
+    date_in = input("Escreva a data de entrada(dd/mm/yyyy): ")
+    day_in, month_in, year_in = testa_data(date_in)
+    time_in = input("Escreva o horário de entrada(hh:mm):")
+    hour_in, minute_in = testa_hora(time_in)
     print(
-        f"Entrada \nDia: {dayIn}/{monthIn}/{yearIn}\nHorário: {hourIn}:{minuteIn}")
+        f"Entrada \nDia: {day_in}/{month_in}/{year_in}\nHorário: {hour_in}:{minute_in}")
 
-    dateOut = input("Escreva a data de saída(dd/mm/yyyy): ")
-    dayOut, monthOut, yearOut = testa_data(dateOut)
-    timeOut = input("Escreva o horário de saída(hh:mm):")
-    hourOut, minuteOut = testa_hora(timeOut)
+    date_out = input("Escreva a data de saída(dd/mm/yyyy): ")
+    day_out, month_out, year_out = testa_data(date_out)
+    time_out = input("Escreva o horário de saída(hh:mm):")
+    hour_out, minute_out = testa_hora(time_out)
     print(
-        f"Saída \nDia: {dayOut}/{monthOut}/{yearOut}\nHorário: {hourOut}:{minuteOut}")
+        f"Saída \nDia: {day_out}/{month_out}/{year_out}\nHorário: {hour_out}:{minute_out}")
 
-    tempoEstacionado = tempo_estacionado(
-        dayIn, monthIn, yearIn, hourIn, minuteIn, dayOut, monthOut, yearOut, hourOut, minuteOut)
-    horasEstacionado = int(tempoEstacionado) / 60
-    print(f"O tempo estacionado foi {tempoEstacionado}")
+    tempo_estacionado = tempo_estacionado(
+        day_in, month_in, year_in, hour_in, minute_in, day_out, month_out, year_out, hour_out, minute_out)
+    horas_estacionado = int(tempo_estacionado) / 60
+    print(f"O tempo estacionado foi {tempo_estacionado}")
