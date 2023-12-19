@@ -10,5 +10,3 @@ while i < size:
     i += 1
 
 print(tribonacci)
-
-size = int(input("Escreva o tamanho da lista: "))
