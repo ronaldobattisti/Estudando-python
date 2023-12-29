@@ -1,8 +1,18 @@
 a = 1263
 b = 98765
 
-veta = str(a).partition()#.reverse()
-vetb = str(b).split()#.reverse()
+print(a + b)
 
-print(veta)
-print(vetb)
+veta = [veta for veta in str(a)]
+vetb = [vetb for vetb in str(b)]
+veta.reverse()
+vetb.reverse()
+
+c = veta.copy()
+c.reverse()
+c = int(''.join(c))
+d = vetb.copy()
+d.reverse()
+d = int(''.join(d))
+
+print(c + d)

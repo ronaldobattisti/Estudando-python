@@ -83,7 +83,7 @@ print(course)
 
 #convert list into string
 list7 = ['Python', 'programming']
-course = ' '.join(list7) #in the list 7, put ' ' between eatch ellement
+course = ' '.join(list7) #in the list 7, put ' ' between each ellement
 print(course)
 
 course = '$'.join(list7)
