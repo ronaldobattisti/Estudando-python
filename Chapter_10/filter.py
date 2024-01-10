@@ -46,5 +46,16 @@ users = [
 
 print(users)
 #Filter innatible users
-inative = list(filter(lambda x: len(x['tweets']) == 0, users))
-print(inative)
+#1st way
+inactive = list(filter(lambda x: len(x['tweets']) == 0, users))
+print(inactive)
+#2nd way
+inactive = list(filter(lambda x: not x['tweets'], users))
+print(inactive)
+
+#combine filter() with map()
+names = ['Vanessa', 'Ana', 'Maria', 'Ade']
+#Crate a list with 'Your instructor is ' + name, as long as each name have less than 5 characters
+
+list1 = list(map(lambda name: f'Your instructor is {name}', list(filter(lambda name: len(name) < 5, names))))#could be wo the last 'list'
+print(list1)
