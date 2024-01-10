@@ -39,3 +39,4 @@ print(cities)
 
 c_to_f = lambda data: (data[0], (9/5 * data[1] + 32))
 print(list(map(c_to_f, cities)))#map recieve only one parameter
+
