@@ -29,3 +29,21 @@ from random import random
 from random import uniform
 for i in range(10):
     print(uniform(3, 7))#7 is not included
+
+#for integer numbers: randint()
+from random import randint
+for i in range(6):
+    print(randint(1, 61), end = ', ')
+
+# choice() -> shows a random value between a iterable
+from random import choice
+
+plays = ['rock', 'paper', 'scisor']
+print(choice(plays))
+
+#shuffle() -> to shuffle datas
+from random import shuffle
+cards = ['k', 'q', 'j', 'a', '2', '3', '4', '5', '6', '7']
+print(cards)
+shuffle(cards)
+print(cards)
