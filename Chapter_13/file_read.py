@@ -28,4 +28,7 @@ print(archive.read())#nothing happen with a second print
 #in the end of the fisrt read, the cursor is in the end of the text
 #It read all the content of the fyle
 
+#you can read only the first 50 characters
+print(archive.read(50))
+
 print(type(archive.read()))#str
