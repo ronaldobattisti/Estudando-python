@@ -1,0 +1,7 @@
+Farroupilha 80000
+Caxias do Sul 1000000
+Bento 110000
+Flores da Cunha 30000
+Porto Alegre 2000000
+Nova Prata 20000
+Muçum 1000
