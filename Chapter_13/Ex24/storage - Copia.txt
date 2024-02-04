@@ -1,0 +1,5 @@
+1,Escova de dentes,10
+2,Sabonete,20
+3,Tiranossauro,1
+4,Pau Brasil,5
+5,Ventilador,3
