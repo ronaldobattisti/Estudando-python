@@ -65,25 +65,30 @@ def show_items():
         out_string.append('|'.join([str(collumn) for collumn in item]))
     return out_string
 
+def show_empty_items():
+    0
+
 #if __name__ == '__main__':
-#while 0:
-option = int(input("Select the option:\n1-Add a product\n2-Remove a product\n3-Check stoock\n4-0 product\n"))
-if option == 1:
-    product = input("Insert the product name: ")
-    try:
-        quant = int(input("Insert the quantity:"))
-    except ValueError:
-        print('Quantity should be an integer')
-    ins_prod(product, quant)
-elif option == 2:
-    print('INDEX | DESCRIPTION | QUANTITY')
-    for item in show_items():
-        print(item)
-    delete_index = int(input("select a item to delete: "))
-    delete_item(read_file(), delete_index)
-elif option == 3:
-    3
-elif option == 4:
-    4
-else: 
-    print("Invalid otion")
+while True:
+    option = int(input("Select the option:\n1-Add a product\n2-Remove a product\n3-Check stoock\n4-0 product\n"))
+    if option == 1:
+        product = input("Insert the product name: ")
+        try:
+            quant = int(input("Insert the quantity:"))
+        except ValueError:
+            print('Quantity should be an integer')
+        ins_prod(product, quant)
+    elif option == 2:
+        print('INDEX | DESCRIPTION | QUANTITY')
+        for item in show_items():
+            print(item)
+        delete_index = int(input("select a item to delete: "))
+        delete_item(read_file(), delete_index)
+    elif option == 3:
+        print('INDEX | DESCRIPTION | QUANTITY')
+        for item in show_items():
+            print(item)
+    elif option == 4:
+        4
+    else: 
+        print("Invalid otion")

@@ -1,7 +1,7 @@
 1,Escova de dentes,10
+2,Soap,4
 3,Tiranossauro,1
 4,vegeta,9
 5,Ventilador,3
 6,cacaroto,2
-7,Pau Brasil,5
 8,arroz,30
