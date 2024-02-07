@@ -66,7 +66,12 @@ def show_items():
     return out_string
 
 def show_empty_items():
-    0
+    text = read_file()
+    out_string = []
+    for item in text:
+        if item[2] == 0:
+            out_string.append('|'.join([str(collumn) for collumn in item]))
+    return out_string
 
 #if __name__ == '__main__':
 while True:
@@ -89,6 +94,8 @@ while True:
         for item in show_items():
             print(item)
     elif option == 4:
-        4
+        print('INDEX | DESCRIPTION | QUANTITY')
+        for item in show_empty_items():
+            print(item)
     else: 
-        print("Invalid otion")
+        print("Invalid option")

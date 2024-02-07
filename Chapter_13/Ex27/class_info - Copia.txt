@@ -1,0 +1,5 @@
+Ronaldo Battisti,10,10,10,10
+Daniela Donida,8, 9,9.5,6.7
+Cassio Battisti,7.5,4.7,8,6.2
+Son Goku,3.4,5.4,3,3,7
+Naruto Uzumaki,1,1.2,0.3,0.8
