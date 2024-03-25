@@ -12,6 +12,16 @@ class Square:
     @side.setter
     def side(self, value):
         self._side = value
+        self._area = self.area()
+        self._perimeter = self.perimeter()
+
+    @property
+    def perimeter(self):
+        return self._perimeter
+
+    @property
+    def area(self):
+        return self._area
 
     def area(self):
         return self._side ** 2
@@ -24,8 +34,11 @@ class Square:
 
 
 sq1 = Square(2)
-sq2 = Square(0)
-sq2.side = 3
+sq2 = Square(4)
+print(sq1)
+print(sq2)
+sq2.side = 3  # -> It just update the value of "side" variable
+# sq2 = Square(3)
 print(sq1)
 print(sq2)
 
