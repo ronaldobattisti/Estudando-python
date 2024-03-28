@@ -7,8 +7,15 @@ To create the tests, we create classes that inherts from unittest.TestCase, than
 
 unittest.main()
 
+by convention, all tests in a test  case should have it's name started by "test_"
 
+to execute:
+
+python module_name.py
+
+python module_name.py -v -> with details about the tests
+
+recommended to se doctrings
 """
 
 # using TDD
-
