@@ -1,11 +1,15 @@
 class Account:
     counter = 1
 
-    def __init__(self: object, name: str, balance: float) -> None:
-        self.__number: int = Account.counter
+    def __init__(self: object, name: str, balance: float, number: int = None) -> None:
+        if number is not None:
+            self.__number = number
+        else:
+            self.__number: int = Account.counter
+            Account.counter += 1
+
         self.__name: str = name
         self.__balance: float = balance
-        Account.counter += 1
 
     @property
     def number(self: object) -> int:
